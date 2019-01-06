@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://bootstrapdocs.com/v3.1.1/docs/dist/css/bootstrap.min.css"/>
+</head>
+<style>
+:focus {
+     outline: 2px solid #FF0000 !important;
+} 
+</style>
+<body ng-controller="AppCtrl as app">
+	<!-- Buttons -->
+<button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Links -->
+<a data-toggle="modal" href="#myModal">Open Modal</a>
+
+<!-- Other elements -->
+<p data-toggle="modal" data-target="#myModal">Open Modal</p> 
+
+<div focus-highlight=""></div>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+<script src="http://bootstrapdocs.com/v3.1.1/docs/dist/js/bootstrap.min.js"></script>
+<script src="http://rawgit.com/obogo/angular-focus-manager/master/build/angular-focusmanager.js"></script>
+<script src="app/app.module_old.js"></script>
+<script src="app/app.module.js"></script>
+<!--<script src="js/jquery.dom-outline-1.0.js"></script>-->
+<script>
+    angular.module('app', ['fm'])
+            .controller('AppCtrl', function () {
+				console.log('hello');
+                this.showModal = false;
+                this.showView = false;
+				this.counter = 1;
+				var vm = this;
+				vm.name = "Thomas";
+                this.toggleDialog = function () {
+					console.log('triggered');
+                    this.showModal = !this.showModal;
+                }
+                this.toggleView = function () {
+                    this.showView = !this.showView;
+                }
+                this.changeDisplay = function () {
+                    this.counter++;
+                }
+            })
+</script>
+</body>
+</html>
